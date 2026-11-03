@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Seed to Seed",
+      "hasCanvas": false,
+      "bodyTextLen": 348,
+      "bodyTextHash": "b7c560bbaf41693ae74f2a627959b3f331ca2ccd3f86f06e05b2fc3db55e0c3c",
+      "bodyTextPrefix": "A GROWER’S ALMANAC Sixteen bushes Seed to Seed Berry bushes, fro",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Seed to Seed",
+      "hasCanvas": false,
+      "bodyTextLen": 348,
+      "bodyTextHash": "b7c560bbaf41693ae74f2a627959b3f331ca2ccd3f86f06e05b2fc3db55e0c3c",
+      "bodyTextPrefix": "A GROWER’S ALMANAC Sixteen bushes Seed to Seed Berry bushes, fro",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Palatino, "Palatino Linotype", serif;
+
+  --color-paper: #f4efe6;
+  --color-paper-deep: #e7dfd0;
+  --color-ink: #1c1915;
+  --color-muted: #5c5348;
+  --color-line: #ddd4c4;
+  --color-wine: #7a2e3b;
+  --color-wine-ink: #f8ecec;
+  --color-wine-soft: #f3e4e6;
+  --color-leaf: #243f32;
+  --color-leaf-soft: #3e6b52;
+  --color-mist: #d7e6db;
+  --color-moss: #e7f0ea;
+
+  --radius-book: 0.375rem;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-leaf);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: var(--color-moss);
+    color: var(--color-ink);
+  }
+}
+
+.fruit-dot {
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--color-ink) 28%, transparent);
+  flex: none;
+}
+
+.fruit-dot[data-fruit="blueberry"] { background: #3c4d86; }
+.fruit-dot[data-fruit="raspberry"] { background: #c1364a; }
+.fruit-dot[data-fruit="blackberry"] { background: #2a1c28; }
+.fruit-dot[data-fruit="boysen"] { background: #6d2438; }
+.fruit-dot[data-fruit="gooseberry"] { background: #b7b15a; }
+.fruit-dot[data-fruit="black-currant"] { background: #24162a; }
+.fruit-dot[data-fruit="red-currant"] { background: #c23b3b; }
+.fruit-dot[data-fruit="josta"] { background: #3a2744; }
+.fruit-dot[data-fruit="elder"] { background: #2e3148; }
+.fruit-dot[data-fruit="cranberry"] { background: #a3262e; }
+.fruit-dot[data-fruit="lingon"] { background: #c4472f; }
+.fruit-dot[data-fruit="huckle"] { background: #1d2430; }
+.fruit-dot[data-fruit="honey"] { background: #3e5f9a; }
+.fruit-dot[data-fruit="aronia"] { background: #1a1218; }
+.fruit-dot[data-fruit="goji"] { background: #d4532b; }
+.fruit-dot[data-fruit="service"] { background: #5d3d78; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 220ms ease;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+  }
+}

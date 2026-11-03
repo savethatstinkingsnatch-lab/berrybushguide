@@ -1,0 +1,265 @@
+import { yearOf, type Bush } from "@/data/model";
+
+export const brambleBushes: Bush[] = [
+  {
+    id: "raspberry",
+    name: "Raspberry",
+    latin: "Rubus idaeus",
+    family: "Rosaceae",
+    aka: "Red raspberry. Black and purple raspberries are cousins with slightly different training.",
+    group: "Bramble",
+    fruit: "raspberry",
+    habit: "Upright cane, suckering from the roots",
+    zones: [3, 8],
+    ph: [5.6, 6.5],
+    sun: "Full sun",
+    water: "Regular water, sharp drainage. Wet clay rots the roots.",
+    height: "4–6 ft canes",
+    thorns: "Usually thorny. A few thornless cultivars exist.",
+    pollination: "Self-fruitful.",
+    yearsPlant: "The second summer, or the first autumn on fall-bearers",
+    yearsSeed: "Two to three years, and not the variety",
+    nurseryYears: 2,
+    soilNeed: "mild",
+    partShade: false,
+    shade: false,
+    alkalineOk: false,
+    lead:
+      "A raspberry lets go of its core. When you pick one, the receptacle stays on the cane and the berry is hollow. That is the whole identification, and it is also why the fruit crushes in a deep bucket. The other decision, before you prune anything, is whether your canes are summer-bearing or fall-bearing.",
+    kitchen:
+      "Eat or freeze them the day you pick. They collapse into jam without much persuasion. Wash only if you must; water hurries the mold.",
+    caution:
+      "Do not plant where tomatoes, peppers, potatoes, eggplant, strawberries, or old brambles grew recently. Verticillium and tired soil linger. Crumbly fruit and mottled leaves are a reason to stop propagating that row, not to share it with a neighbor.",
+    stages: {
+      gather: {
+        body: "Named canes are clones. Seed from the fruit grows a raspberry, not that variety. If you still want seed, mash ripe berries, rinse the drupelets, and dry the pits. To copy a plant you already grow, dig a sucker in early spring with some root attached, from a row that looks healthy.",
+        action: "Start with certified canes. Save seed only as an experiment.",
+      },
+      dormancy: {
+        body: "Seed wants about 90 days cold and barely moist, just above freezing. Canes you order arrive dormant. Keep the roots damp and the tops cold, and plant before the buds break. A bare root dried on the driveway is already a poor plant.",
+        action: "Chill seed three months. Heel in bare-root canes the day they arrive.",
+      },
+      sow: {
+        body: "After the chill, sow seed about a quarter inch deep in a drained mix and keep it warm and moist. Germination takes a few weeks and will not be uniform. The real sowing for a known raspberry is a dormant cane in early spring, crown about an inch below the surface, with the trellis already in mind.",
+        action: "Plant canes into ground that has not just grown nightshades, strawberries, or old brambles.",
+      },
+      seedling: {
+        body: "Seedlings stay small the first year and are not the parent berry. Pot them on when roots reach the drain hole. Give them sun. Discard weak ones rather than founding a thicket you will fight for a decade.",
+        action: "If you wanted a known berry, plant a named cane instead of nursing seedlings.",
+      },
+      site: {
+        body: "Full sun, pH about 5.6 to 6.5, moisture with drainage. In heavy clay, a raised row keeps the crowns out of winter water. Space red raspberries about 2 feet apart in rows 6 to 8 feet apart, because suckers will fill the row. Set the wires before the canes need them. Zones 3 to 8, with heat as the usual limit at the warm end. Afternoon shade is a mercy in zone 8, not a substitute for sun.",
+        action: "Build the trellis the same week you plant. Write down whether the variety is summer- or fall-bearing.",
+      },
+      establish: {
+        body: "Water in dry weeks. Keep grass out of the row. A compost mulch in spring is enough fertilizer in decent soil. Fall-bearing types may give you a taste at the tips late in year one. Summer-bearing types spend year one growing the canes that fruit next year. Tie those canes in as they grow.",
+        action: "Weed the row and tie the canes. Do not mow a summer-bearer down because it failed to fruit in year one.",
+      },
+      prune: {
+        body: "Summer-bearers fruit on second-year canes. After harvest, cut those spent canes to the ground. Keep the new canes, thinned to about four to six strong ones per foot of row, and shorten them in late winter so they stand. Fall-bearers fruit on this year’s canes. The simple method is to mow every cane to the ground in late winter and take one late crop. Leave them up only if you want a smaller early crop on the lower buds as well.",
+        action: "Know the type before you cut. Mowing a summer-bearer in winter erases the crop.",
+      },
+      fruit: {
+        body: "Pick when the berry releases with a gentle pull and the core stays behind on the cane. Chill the fruit quickly. Pick every day or two at the peak. Overripe berries left hanging feed spotted-wing drosophila, the fruit fly of soft fruit. Birds work the row too. A seedling’s fruit is a surprise and not a reason to name it after the parent.",
+        action: "Pick clean and often. Do not leave soft fruit on the cane or on the ground.",
+      },
+      save: {
+        body: "Dig suckers from the edge of a healthy row in early spring and move them, or take root cuttings. Do not pass along canes from plants with crumbly berries or mottled leaves. Seed can be cleaned, dried, labeled, and chilled again. It starts a new bramble with no variety name. That is an honest label. Write “seedling,” not the parent’s name.",
+        action: "Renew the row from healthy suckers. Retire a virus-looking row instead of dividing it.",
+      },
+    },
+    year: yearOf([
+      "Order canes. Seed still needs its chill if you started late.",
+      "Plant bare-root as soon as the soil works. Mow fall-bearers now if that is your method. Finish winter pruning of summer-bearers.",
+      "Tie canes. Mulch. First compost along the row.",
+      "Weed. New suckers appear. Thin them to the spacing you chose.",
+      "Watch for cane borers: a tip that wilts because something bored the cane.",
+      "Summer-bearers ripen. Pick daily. Cut spent floricanes after the crop.",
+      "Keep watering. Tie in the new canes that will fruit next year or this fall.",
+      "Fall-bearers start. Keep the fruit picked clean.",
+      "Peak fall crop on many primocane varieties.",
+      "Last fruit. Remove any cane with a gall or a clearly diseased cane.",
+      "Write down the bearing type before you forget over winter.",
+      "Rest. Do not prune in frozen mud. Wait for late winter.",
+    ]),
+    mistakes: [
+      "Cutting every cane of a summer-bearer to the ground in winter.",
+      "Planting into a wet hollow.",
+      "Letting the row become an unthinned thicket with no air and no sun.",
+    ],
+  },
+  {
+    id: "blackberry",
+    name: "Blackberry",
+    latin: "Rubus subgenus Rubus",
+    family: "Rosaceae",
+    aka: "Erect, semi-erect, and trailing kinds. Dewberries are the trailing wild side of the family.",
+    group: "Bramble",
+    fruit: "blackberry",
+    habit: "Arching or trailing canes; some sucker, some crown",
+    zones: [5, 9],
+    ph: [5.5, 6.5],
+    sun: "Full sun",
+    water: "Regular water while the fruit swells, drainage in winter",
+    height: "4–8 ft, trailing canes much longer",
+    thorns: "Thorny or thornless, depending on the cultivar",
+    pollination: "Self-fruitful.",
+    yearsPlant: "Second year on floricanes; some primocane cultivars fruit the first fall",
+    yearsSeed: "Not true to type",
+    nurseryYears: 2,
+    soilNeed: "mild",
+    partShade: false,
+    shade: false,
+    alkalineOk: false,
+    lead:
+      "A blackberry comes off the plant with the white core inside it. That is how it differs from a raspberry, and it is why the fruit ships better and stains worse. Erect kinds can stand with a little help. Trailing kinds are a trellis crop. Primocane cultivars exist, but most classic blackberries fruit on second-year canes.",
+    kitchen:
+      "Pie, jam, and a bowl, if you pick them fully black and soft. Red-black berries are not almost ripe. They are sour. Freeze the extras in a single layer.",
+    caution:
+      "Thornless is not the same word as noninvasive. Even well-behaved cultivars throw long canes. Give them a boundary, and do not start seed from a wild thicket you cannot identify.",
+    stages: {
+      gather: {
+        body: "Buy a named plant: an erect thornless such as a Prime-Ark type if you want a fall crop, or a classic floricane cultivar if you want the old summer fruit. Seed from a ripe berry can be rinsed and dried. It will grow a bramble, not the cultivar. Trailing kinds also hand you the next plant for free when a tip touches soil in late summer and roots.",
+        action: "Choose erect, trailing, or primocane before you plant. The training is different.",
+      },
+      dormancy: {
+        body: "Seed stratifies about 90 days, cold and barely moist. Bare-root crowns arrive dormant and should be planted before they leaf out, roots kept damp. A tip-layer that rooted in autumn can be left attached until early spring, then cut free.",
+        action: "Chill seed three months, or simply hold a rooted tip until spring and sever it.",
+      },
+      sow: {
+        body: "Sow seed a quarter inch deep after the chill, warm and moist. For plants, set crowns at the same depth they grew, in early spring. Trailing cultivars need the trellis the day you plant, not the day the cane is already eight feet long.",
+        action: "Put the wires up first. Blackberries grow faster than good intentions.",
+      },
+      seedling: {
+        body: "Seedlings are thorny more often than not, even if the fruit you saved came from a thornless cultivar. That is another reason to clone. Pot seedlings on, give them sun, and be willing to throw them out.",
+        action: "Do not fill the garden with unnamed seedlings and then try to sort them by fruit years later.",
+      },
+      site: {
+        body: "Full sun, pH 5.5 to 6.5, fertile soil that drains. Space erect plants 3 to 4 feet apart, trailing plants farther, rows wide enough to walk. Zones 5 to 9. Trailing kinds want the warmer end of that, or winter protection. Avoid the same diseased ground you would avoid for raspberries. A south fence is a good trellis and a warm winter wall.",
+        action: "Give each plant a permanent place and a path to harvest it. Thickets do not get picked.",
+      },
+      establish: {
+        body: "Water through the first summer. Mulch. Let the new canes grow and tie them as they go. Floricane types will not fruit those first canes until the next year. Primocane cultivars may fruit at the tips in the first fall. Pinching is part of training for erect kinds, not a sign that something went wrong.",
+        action: "Tie canes in while they are still flexible. A cane trained late is a cane that snaps.",
+      },
+      prune: {
+        body: "On erect floricanes, tip the new canes in summer when they reach about chest to head height, so they branch. In late winter, shorten those branches to about 12–18 inches and cut out the old canes that already fruited, at the ground. Trailing kinds are not tipped the same way: keep the new canes, train them along the wires, and remove only the canes that have already fruited. Primocane cultivars can be mown in late winter if you want only the fall crop.",
+        action: "Spent cane to the ground. New cane saved and trained. Do not reverse those two.",
+      },
+      fruit: {
+        body: "Pick when the berry is fully black, dull rather than shiny, and comes off without a fight, core included. Shiny black is still tart. A nursery plant fruits in its second year. Birds and sunscald both mark fruit on an open trellis; pick promptly. Stain is permanent. Gloves are not vanity on the thorny kinds.",
+        action: "Wait until the shine goes dull. Pick into shallow trays, not a deep bucket.",
+      },
+      save: {
+        body: "Tip-layer in late summer: bury a cane tip a couple of inches and it roots. Cut it free the next spring and you have the same blackberry. Suckers of erect types can be dug from healthy plants. Seed can be cleaned and chilled, and should be labeled “seedling,” never with the cultivar name. That is the whole seed-to-seed honesty of this fruit.",
+        action: "Bury a tip to copy the plant. Keep seed only if you want a new bramble.",
+      },
+    },
+    year: yearOf([
+      "Order crowns. Confirm on the tag whether it is floricane or primocane.",
+      "Plant bare-root. Cut out any leftover spent canes on older plants. Tip primocane beds only if you mow for a single fall crop.",
+      "Tie new growth as it starts. Mulch.",
+      "Weed. Thornless canes are still eager.",
+      "Tip erect primocanes or floricanes when they reach the height you chose.",
+      "Green fruit on floricanes. Keep tying laterals.",
+      "Main summer harvest for floricanes. Remove those canes when the crop is done.",
+      "Train the new canes into the space the old ones left. Tip-layer a cane you want to keep.",
+      "Primocane cultivars ripen at the tips.",
+      "Last pick. Sever rooted tips you want to move, or leave them until spring.",
+      "In cold zones, lay trailing canes down and mulch them if winter regularly injures them.",
+      "Clean labels and ties. A year from now you will not remember which wire is this year’s cane.",
+    ]),
+    mistakes: [
+      "Training new and old canes in one tangle so you cut both in winter.",
+      "Picking shiny black fruit and deciding you hate blackberries.",
+      "Planting trailing kinds with no trellis and no path.",
+    ],
+  },
+  {
+    id: "boysenberry",
+    name: "Boysenberry",
+    latin: "Rubus ursinus hybrid",
+    family: "Rosaceae",
+    aka: "A trailing hybrid in the loganberry and dewberry line. Thornless clones are the ones to plant.",
+    group: "Bramble",
+    fruit: "boysen",
+    habit: "Long trailing canes on a trellis",
+    zones: [6, 9],
+    ph: [5.5, 6.8],
+    sun: "Full sun, warmth against a fence if your winters are cold",
+    water: "Steady moisture while fruit swells; drainage in winter",
+    height: "Canes 8–12 ft, trained sideways",
+    thorns: "Plant the thornless clones. Older clones scratch.",
+    pollination: "Self-fruitful.",
+    yearsPlant: "Second summer",
+    yearsSeed: "Will not come true",
+    nurseryYears: 2,
+    soilNeed: "mild",
+    partShade: false,
+    shade: false,
+    alkalineOk: false,
+    lead:
+      "Boysenberry is a particular berry, large, wine-dark, soft, and sweet-tart, kept in the world by cuttings and tip-layers. Seed will make a bramble of some kind. It will not make a boysenberry. Loganberry and tayberry are trained the same way and obey the same rule.",
+    kitchen:
+      "Pie, jam, and syrup. The fruit is too soft to store. Process or freeze it the day it comes off the trellis. The color is a stain. Treat the apron accordingly.",
+    caution:
+      "In zones colder than about 6, the canes need to be laid down and covered, or they freeze and you lose the next crop. This is a poor choice for a short, brutal winter unless you enjoy that chore.",
+    stages: {
+      gather: {
+        body: "Buy a certified thornless plant. There is no honest seed packet of boysenberry. If you already grow one, the gather is a cane tip in late summer, buried so it roots. Ripe fruit is for eating. Save a few drupelets only if you want to see what a seedling does, and do not sell the seedling under this name.",
+        action: "Start with a plant. Gather a tip, not a seed, to make the next one.",
+      },
+      dormancy: {
+        body: "Bare-root plants are dormant crowns. Keep them cold and the roots damp, and plant before bud break. A tip-layer rooted last fall stays attached through winter and is cut free in early spring. Seed, if you are experimenting anyway, needs the same three-month cold moisture as other brambles.",
+        action: "Plant the crown in late winter or early spring. Leave rooted tips attached until then.",
+      },
+      sow: {
+        body: "Set the crown at soil level in early spring, in full sun, at the base of a sturdy trellis. Two or three wires, the top one near head height, are enough. Space plants 4 to 6 feet apart. Sowing actual seed is a quarter-inch-deep curiosity after a chill, and it does not belong in the main row.",
+        action: "Plant at the trellis, not in the middle of a lawn you hope to mow.",
+      },
+      seedling: {
+        body: "Any seedling from this fruit is a new hybrid, thorny or not, good or not. Grow it somewhere else, away from the named row, until it fruits and you can decide. Do not let it tip-layer into the boysenberry and erase the difference.",
+        action: "Keep seedlings out of the named row.",
+      },
+      site: {
+        body: "Full sun, pH 5.5 to 6.8, rich moisture, and air. Zones 6 to 9 are the reasonable band; 7 to 9 are the easy band. A warm wall helps at the cold edge. The canes are long. Leave a path on the picking side. Avoid ground that recently grew sick brambles or solanaceous crops.",
+        action: "Give the canes room to be tied horizontally. Vertical chaos is how fruit gets missed.",
+      },
+      establish: {
+        body: "The first year’s canes will fruit next summer. Tie them along the wires as they grow, loosely. Water through fruit swell in later years, and through simple establishment this year. Mulch. Do not cut these first canes down in autumn or you have deleted the first crop.",
+        action: "Tie, water, and leave the new canes. They are next year’s fruit.",
+      },
+      prune: {
+        body: "Boysenberry is a floricane. After you harvest, cut the canes that just fruited to the ground. Keep the new canes that grew during the summer, thin them to a number you can actually tie, and train those onto the wires for next year. In a cold garden, you can bundle the new canes, lay them along the ground, and mulch them for winter, then put them back on the wires in spring.",
+        action: "Old cane off after harvest. New cane saved, tied, and protected if your winter kills trailing canes.",
+      },
+      fruit: {
+        body: "The berries are large and dark maroon to purple-black, ripe when they release easily and taste sweet rather than sharp. They do not hold on the cane, and they do not hold in the fridge for long. A plant fruits in its second summer. Pick into shallow containers. One rainy week at peak can spoil a flush; pick before the rain if you can.",
+        action: "Harvest as soon as the berries let go. Freeze or cook the same day.",
+      },
+      save: {
+        body: "In late summer, bury a tip of a new cane two inches deep. It roots by autumn. Sever and move it in early spring and you have another boysenberry, the same one. That layered tip is the seed of this book’s title for a hybrid: the next generation that stays true. Actual seed is a breeder’s game. Dry it and label it as an unknown Rubus if you keep it at all.",
+        action: "Tip-layer one cane every year. You will never need to buy this plant again.",
+      },
+    },
+    year: yearOf([
+      "Order thornless plants. Confirm you have wires, not a tomato cage.",
+      "Plant crowns. On established plants, retie any canes you laid down for winter.",
+      "New canes start. Tie them in while they bend.",
+      "Weed and mulch. Do not prune off the canes you just tied.",
+      "Water if the soil dries. Long canes are thirsty in a warm spell.",
+      "Green fruit swells. Keep picking paths clear.",
+      "Harvest. The moment a cane has finished, cut that cane out.",
+      "Train this year’s new canes into the gap. Bury tips you want to root.",
+      "Last of the fruit in cool climates may already be done. Keep watering new canes.",
+      "Sever rooted tips you are moving, or mark them and wait for spring.",
+      "In cold gardens, lay new canes down and cover them before the hard freeze.",
+      "Leave the plant dormant. The fruit is already decided on those saved canes.",
+    ]),
+    mistakes: [
+      "Growing it from seed and expecting boysenberry fruit.",
+      "Cutting all canes after harvest, including the new ones.",
+      "Skipping the trellis. Trailing canes on the ground rot their fruit.",
+    ],
+  },
+];
