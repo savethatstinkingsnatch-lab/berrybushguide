@@ -286,9 +286,9 @@ export const otherBushes: Bush[] = [
     shade: false,
     alkalineOk: true,
     lead:
-      "Goji is the berry in this book that wants the soil blueberries hate. Neutral to alkaline, full sun, and a willingness to sprawl. It flowers on new growth, so a spring prune does not cancel the crop. The fruit is red, oblong, and famous dried. The leaves are edible cooked. It is a nightshade, not a blueberry, and it should not be slipped into an acid bed.",
+      "Goji is the berry in this book that wants the soil blueberries hate. Neutral to alkaline, full sun, and a willingness to sprawl. It flowers on new growth, so a spring prune does not cancel the crop. The fruit is red, oblong, and famous dried. It is a nightshade, not a blueberry, and it should not be slipped into an acid bed.",
     kitchen:
-      "Dry the ripe red berries, or eat them fresh when fully ripe and sweet. They are milder fresh than the chewy dried ones suggest. Young leaves can be cooked like a green. Unripe fruit is not the crop.",
+      "Dry the ripe red berries, or eat them fresh when fully ripe and sweet. They are milder fresh than the chewy dried ones suggest. Unripe fruit is not the crop.",
     caution:
       "It suckers and it self-seeds, and in some regions it is a weed. Do not plant it where a thicket would be a problem. Do not confuse the plant with bittersweet nightshade. If you are on a nightshade-sensitive diet, this is still a nightshade.",
     stages: {

@@ -3,7 +3,7 @@ import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "Seed to Seed";
+const APP_NAME = "The Education Revolution";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -14,7 +14,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Seed to Seed, a free berry bush almanac by Jessica McIntosh. Grow your own food, from the seed you sow to the seed you save.",
+          "The Education Revolution, Volume 10: Berry Bushes: Cutting to Harvest. A free berry bush guide by Blue and the Awesome Dudes.",
       },
       { name: "theme-color", content: "#243f32" },
     ],

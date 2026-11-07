@@ -151,7 +151,7 @@ export const brambleBushes: Bush[] = [
         action: "Wait until the shine goes dull. Pick into shallow trays, not a deep bucket.",
       },
       save: {
-        body: "Tip-layer in late summer: bury a cane tip a couple of inches and it roots. Cut it free the next spring and you have the same blackberry. Suckers of erect types can be dug from healthy plants. Seed can be cleaned and chilled, and should be labeled “seedling,” never with the cultivar name. That is the whole seed-to-seed honesty of this fruit.",
+        body: "Tip-layer in late summer: bury a cane tip a couple of inches and it roots. Cut it free the next spring and you have the same blackberry. Suckers of erect types can be dug from healthy plants. Seed can be cleaned and chilled, and should be labeled “seedling,” never with the cultivar name. That is the honest way to keep this fruit.",
         action: "Bury a tip to copy the plant. Keep seed only if you want a new bramble.",
       },
     },

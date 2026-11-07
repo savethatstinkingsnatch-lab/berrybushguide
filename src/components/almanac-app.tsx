@@ -6,16 +6,22 @@ import { loadPatch, savePatch, type PatchEntry } from "@/lib/patch-store";
 
 type PageId =
   | "cover"
+  | "safe"
+  | "start"
   | "howto"
   | "cycle"
   | "match"
   | "compare"
   | "patch"
   | "others"
+  | "glossary"
+  | "about"
   | "project"
   | (string & {});
 
 const FRONT: { id: PageId; label: string }[] = [
+  { id: "safe", label: "Stay safe: wild berries" },
+  { id: "start", label: "Start here" },
   { id: "howto", label: "How to use this book" },
   { id: "cycle", label: "The cycle" },
   { id: "match", label: "Match your ground" },
@@ -25,6 +31,8 @@ const BACK: { id: PageId; label: string }[] = [
   { id: "compare", label: "Side by side" },
   { id: "patch", label: "Your patch" },
   { id: "others", label: "Beyond this book" },
+  { id: "glossary", label: "Glossary" },
+  { id: "about", label: "About and disclaimer" },
   { id: "project", label: "The project" },
 ];
 
@@ -73,7 +81,7 @@ export function AlmanacApp() {
 
   if (page === "cover") {
     return (
-      <Cover onOpen={() => open("howto")} />
+      <Cover onOpen={() => open("safe")} />
     );
   }
 
@@ -93,8 +101,8 @@ export function AlmanacApp() {
             <Menu className="size-5" aria-hidden="true" />
           </button>
           <button type="button" className="min-h-11 text-left" onClick={() => open("cover")}>
-            <span className="block font-display text-lg leading-none">Seed to Seed</span>
-            <span className="text-xs tracking-wide text-muted">Jessica McIntosh</span>
+            <span className="block font-display text-base leading-tight">The Education Revolution</span>
+            <span className="text-xs tracking-wide text-muted">Vol. 10 · Berry Bushes: Cutting to Harvest</span>
           </button>
         </header>
         {menu ? (
@@ -131,6 +139,9 @@ export function AlmanacApp() {
             open={open}
           />
         </main>
+        <footer className="mx-auto w-full max-w-3xl px-5 pb-8 sm:px-8">
+          <PrivacyLine />
+        </footer>
       </div>
     </div>
   );
@@ -146,16 +157,18 @@ function Cover({ onOpen }: { onOpen: () => void }) {
             <Leaf className="size-4" aria-hidden="true" />
             Sixteen bushes
           </p>
-          <h1 className="font-display text-6xl leading-[0.92] font-medium sm:text-7xl">Seed to Seed</h1>
-          <p className="mt-5 max-w-sm text-lg text-mist">
-            Berry bushes, from the seed you hold to the seed you save.
+          <p className="mb-3 text-sm text-mist">Pocket Guide, Volume 10</p>
+          <h1 className="font-display text-5xl leading-[0.95] font-medium sm:text-6xl">The Education Revolution</h1>
+          <p className="mt-4 font-display text-3xl leading-tight font-medium text-paper">
+            Berry Bushes: Cutting to Harvest
           </p>
+          <p className="mt-5 max-w-sm text-lg text-mist">From the cutting you take to the harvest you pick.</p>
         </div>
-        <p className="font-display text-2xl font-medium">Jessica McIntosh</p>
+        <p className="font-display text-2xl font-medium">Blue and the Awesome Dudes</p>
       </section>
       <section className="flex flex-col justify-center gap-8 bg-paper px-6 py-10 text-ink sm:px-10 lg:px-12">
         <p className="max-w-md text-lg leading-relaxed">
-          A field book for growing your own fruit. Sixteen bushes, from the seed you hold to the seed you save.
+          A field book for growing your own fruit. Sixteen bushes, from the cutting you take to the harvest you pick.
         </p>
         <div className="flex flex-wrap items-center gap-3">
           <button
@@ -171,18 +184,19 @@ function Cover({ onOpen }: { onOpen: () => void }) {
           {[
             ["Bushes", "16"],
             ["Stages", "9"],
-            ["Edition", "Open"],
-            ["Author", "McIntosh"],
+            ["Volume", "10"],
+            ["Author", "Blue and the Awesome Dudes"],
           ].map(([label, value]) => (
             <div key={label} className="bg-paper px-3 py-3">
               <dt className="text-xs tracking-widest text-muted uppercase">{label}</dt>
-              <dd className="mt-1 font-display text-2xl">{value}</dd>
+              <dd className="mt-1 font-display text-2xl leading-tight">{value}</dd>
             </div>
           ))}
         </dl>
         <p className="max-w-md text-sm text-muted">
           Land, photos, hands-on days, storage, and recipes come later.
         </p>
+        <PrivacyLine />
       </section>
     </div>
   );
@@ -213,8 +227,8 @@ function Contents({
   return (
     <nav aria-label="Contents" className="px-3 py-4">
       <button type="button" className="mb-3 min-h-11 px-2 text-left" onClick={() => open("cover")}>
-        <span className="block font-display text-xl leading-none">Seed to Seed</span>
-        <span className="text-xs text-muted">Jessica McIntosh</span>
+        <span className="block font-display text-xl leading-tight">The Education Revolution</span>
+        <span className="text-xs text-muted">Vol. 10 · Blue and the Awesome Dudes</span>
       </button>
       <label className="mb-4 block px-2">
         <span className="sr-only">Search bushes</span>
@@ -331,6 +345,8 @@ function PageBody(props: {
       />
     );
   }
+  if (props.page === "safe") return <StaySafe open={props.open} />;
+  if (props.page === "start") return <StartHere open={props.open} />;
   if (props.page === "howto") return <HowTo open={props.open} />;
   if (props.page === "cycle") {
     return (
@@ -359,6 +375,8 @@ function PageBody(props: {
     return <Patch patch={props.patch} setPatch={props.setPatch} open={props.open} />;
   }
   if (props.page === "others") return <Others />;
+  if (props.page === "glossary") return <Glossary open={props.open} />;
+  if (props.page === "about") return <About open={props.open} />;
   return <Project />;
 }
 
@@ -376,13 +394,13 @@ function HowTo({ open }: { open: (id: PageId) => void }) {
   return (
     <article className="rise">
       <ChapterHead
-        kicker="Chapter 1"
+        kicker={`Chapter ${readingOrder().indexOf("howto") + 1}`}
         title="How to use this book"
         dek="Same nine beats for every bush, so a blueberry and a goji can be compared without learning a new outline."
       />
       <div className="space-y-4 text-base">
         <p>
-          Seed to seed is the biological circle: gather the seed, carry it through dormancy, sow it, raise the
+          The cycle is a circle: gather the seed, carry it through dormancy, sow it, raise the
           seedling, put it in the right ground, keep it alive, prune the wood that fruits, pick the fruit, and
           save the next seed. For most named berries the faithful copy is not a seed at all. It is a cutting, a
           sucker, or a cane tip that rooted. This book tells both truths.
@@ -465,7 +483,7 @@ function Cycle({
   return (
     <article className="rise">
       <ChapterHead
-        kicker="Chapter 2"
+        kicker={`Chapter ${readingOrder().indexOf("cycle") + 1}`}
         title="The cycle"
         dek="Nine stages that belong to every bush in the book. The details change. The order does not."
       />
@@ -479,6 +497,7 @@ function Cycle({
           <span className="font-medium">Do this. </span>
           {lesson.lessonAction}
         </p>
+        {stage === "gather" ? <PatentBox /> : null}
       </div>
       {bush && copy ? (
         <div className="mt-8 border border-line p-4 sm:p-5">
@@ -531,7 +550,7 @@ function Match({
   return (
     <article className="rise">
       <ChapterHead
-        kicker="Chapter 3"
+        kicker={`Chapter ${readingOrder().indexOf("match") + 1}`}
         title="Match your ground"
         dek="Zones are a cold-hardiness sketch. pH is not optional. Answer for the bed you will actually plant, not the bed you wish you had."
       />
@@ -721,7 +740,7 @@ function BushChapter({
           </div>
         ))}
       </dl>
-      <h2 className="mt-10 font-display text-2xl font-medium">Seed to seed</h2>
+      <h2 className="mt-10 font-display text-2xl font-medium">Cutting to harvest</h2>
       <div className="mt-4">
         <StageBar stage={stage} setStage={setStage} />
       </div>
@@ -734,6 +753,11 @@ function BushChapter({
           <span className="font-medium">Do this. </span>
           {copy.action}
         </p>
+        {stage === "gather" ? (
+          <div className="mt-4">
+            <PatentBox />
+          </div>
+        ) : null}
       </div>
       <h2 className="mt-10 font-display text-2xl font-medium">The year</h2>
       <ol className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -1055,11 +1079,161 @@ function Others() {
   );
 }
 
+const POISONOUS = [
+  ["Pokeweed", "Dark purple berries hanging in long clusters on pink-red stems. Poisonous."],
+  ["Nightshades, like bittersweet nightshade", "Small red or black berries with star-shaped flowers. Poisonous."],
+  ["Yew", "Bright red cup-shaped berries on an evergreen shrub. The seed and leaves are deadly."],
+  ["Virginia creeper", "Blue-black berries on a vine with 5 leaflets. Poisonous."],
+  ["Moonseed", "Looks like wild grape, but it has ONE flat, crescent-moon seed. Grapes have several round seeds. Can kill."],
+  ["Buckthorn, holly, and baneberry berries are also poisonous.", ""],
+] as const;
+
+function StaySafe({ open }: { open: (id: PageId) => void }) {
+  return (
+    <article className="rise">
+      <ChapterHead
+        kicker={`Chapter ${readingOrder().indexOf("safe") + 1}`}
+        title="Stay safe: wild berries"
+      />
+      <p>Never eat a wild berry unless you are 100% sure what it is. Many poisonous berries look tasty. Keep kids away from these:</p>
+      <ul className="mt-4 list-disc space-y-3 pl-5">
+        {POISONOUS.map(([name, note]) => (
+          <li key={name}>
+            {note ? (
+              <>
+                <span className="font-medium">{name}.</span> {note}
+              </>
+            ) : (
+              name
+            )}
+          </li>
+        ))}
+      </ul>
+      <p className="mt-6">
+        Elderberry: Only eat ripe dark berries, and always cook them. Never eat the stems, leaves, or unripe berries,
+        or any red elderberry.
+      </p>
+      <p className="mt-4 border-l-4 border-wine bg-wine-soft px-4 py-3 text-sm">
+        If someone eats an unknown berry, call Poison Control at{" "}
+        <a className="font-medium underline" href="tel:18002221222">
+          1-800-222-1222
+        </a>
+        .
+      </p>
+      <Pager page="safe" open={open} />
+    </article>
+  );
+}
+
+const START_STEPS = [
+  "Find your USDA zone. Search 'USDA zone' plus your zip code.",
+  "Test your soil pH. Blueberries need very acid soil (4.5 to 5.5). Most others like 5.5 to 6.8.",
+  "Buy healthy named plants from a nursery. Seeds from a berry will NOT grow the same berry.",
+  "Plant in full sun, in soil that drains well. Mulch around the plant.",
+  "Water every week the first two summers.",
+  "Learn whether your canes fruit on new or old wood before you prune.",
+  "Want more plants? Make copies with cuttings, layering, or suckers. That is how berry growers 'save seed.'",
+] as const;
+
+function StartHere({ open }: { open: (id: PageId) => void }) {
+  return (
+    <article className="rise">
+      <ChapterHead
+        kicker={`Chapter ${readingOrder().indexOf("start") + 1}`}
+        title="Start here"
+        dek="New to berry bushes? Do these in order:"
+      />
+      <ol className="list-decimal space-y-3 pl-5">
+        {START_STEPS.map((step) => (
+          <li key={step}>{step}</li>
+        ))}
+      </ol>
+      <Pager page="start" open={open} />
+    </article>
+  );
+}
+
+const GLOSSARY: readonly [string, string][] = [
+  ["Cultivar", "A named variety, like 'Bluecrop'."],
+  ["Clone", "A plant grown from a cutting, sucker, or layer. It is an exact copy of the parent."],
+  ["Cutting", "A piece of stem rooted to make a new plant."],
+  ["Layering", "Bending a branch into the soil so it roots while still attached."],
+  ["Sucker", "A new shoot that comes up from the roots."],
+  ["Primocane", "A first-year cane."],
+  ["Floricane", "A second-year cane that fruits, then dies."],
+  ["Chill hours", "Hours of winter cold a bush needs before it will fruit."],
+  ["Stratification", "Giving seeds a cold, damp period so they will sprout."],
+  ["Self-fruitful", "A plant that can make fruit with its own pollen."],
+  ["pH", "How acid or sweet your soil is."],
+];
+
+function Glossary({ open }: { open: (id: PageId) => void }) {
+  return (
+    <article className="rise">
+      <ChapterHead
+        kicker={`Chapter ${readingOrder().indexOf("glossary") + 1}`}
+        title="Glossary"
+        dek="Short names for the words this book uses."
+      />
+      <dl className="space-y-4">
+        {GLOSSARY.map(([term, meaning]) => (
+          <div key={term} className="border-b border-line pb-4">
+            <dt className="font-display text-2xl font-medium">{term}</dt>
+            <dd className="mt-1">{meaning}</dd>
+          </div>
+        ))}
+      </dl>
+      <Pager page="glossary" open={open} />
+    </article>
+  );
+}
+
+function About({ open }: { open: (id: PageId) => void }) {
+  return (
+    <article className="rise">
+      <ChapterHead
+        kicker={`Chapter ${readingOrder().indexOf("about") + 1}`}
+        title="About and disclaimer"
+      />
+      <p>
+        This pocket guide is for learning. Gardens, weather, and people differ. Check with your local county
+        extension office and your state's plant rules. Never eat a wild plant you cannot identify for certain.
+        Blue and the Awesome Dudes are not responsible for injury, illness, or crop loss. Part of The Education
+        Revolution pocket guide series.
+      </p>
+      <Pager page="about" open={open} />
+    </article>
+  );
+}
+
+function PatentBox() {
+  return (
+    <aside className="border-l-4 border-wine bg-wine-soft px-4 py-3 text-sm">
+      <p className="font-medium">Plant patents</p>
+      <p className="mt-2">
+        Many newer berry varieties are patented. The tag will say 'PP' with a number, or
+        'Propagation prohibited.' It is against the law to root cuttings or dig suckers from those
+        plants to give away or sell while the patent lasts, usually 20 years. Older varieties and plants with no
+        patent are fine to share. Read the tag.
+      </p>
+    </aside>
+  );
+}
+
+function PrivacyLine() {
+  return (
+    <p className="mt-6 text-sm text-muted">
+      Privacy: This guide does not collect your name, email, or any personal information. Your choices are saved
+      only on your own device.
+    </p>
+  );
+}
+
 const LATER = [
   {
     when: "Now",
     title: "This book, free",
-    body: "Sixteen berry bushes, seed to seed. Read them, match them to your ground, and keep a patch notebook on this device. The reading stays open.",
+    body: "Sixteen berry bushes, from cutting to harvest. Read them, match them to your ground, and keep a patch notebook on this device. The reading stays open.",
   },
   {
     when: "When there is land",
@@ -1092,7 +1266,7 @@ function Project() {
           </li>
         ))}
       </ol>
-      <p className="mt-8 text-sm text-muted">© 2026 Jessica McIntosh.</p>
+      <p className="mt-8 text-sm text-muted">© 2026 Blue and the Awesome Dudes.</p>
     </article>
   );
 }

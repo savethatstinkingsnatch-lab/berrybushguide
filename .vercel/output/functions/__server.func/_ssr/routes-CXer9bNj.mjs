@@ -1,7 +1,7 @@
 import { i as __toESM } from "../_runtime.mjs";
 import { K as require_react, b as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
 import { a as BookOpen, i as Leaf, r as Menu, t as X } from "../_libs/lucide-react.mjs";
-//#region node_modules/.nitro/vite/services/ssr/assets/routes-ButTroxy.js
+//#region node_modules/.nitro/vite/services/ssr/assets/routes-CXer9bNj.js
 var import_react = /* @__PURE__ */ __toESM(require_react());
 var import_jsx_runtime = require_jsx_runtime();
 var STAGE_IDS = [
@@ -123,6 +123,18 @@ var ALSO = [
 	}
 ];
 function judge(bush, ground) {
+	return noteWarmBlueberry(judgeFit(bush, ground), ground);
+}
+function noteWarmBlueberry(verdict, ground) {
+	if (verdict.bush.id !== "blueberry" || verdict.fit === "no") return verdict;
+	if (ground.zone < 7 || ground.zone > 9) return verdict;
+	const note = "In zones 7–9, choose rabbiteye or southern highbush types.";
+	return {
+		...verdict,
+		reason: `${verdict.reason} ${note}`
+	};
+}
+function judgeFit(bush, ground) {
 	const [lo, hi] = bush.zones;
 	if (ground.zone < lo || ground.zone > hi) return {
 		bush,
@@ -349,7 +361,7 @@ var brambleBushes = [
 				action: "Wait until the shine goes dull. Pick into shallow trays, not a deep bucket."
 			},
 			save: {
-				body: "Tip-layer in late summer: bury a cane tip a couple of inches and it roots. Cut it free the next spring and you have the same blackberry. Suckers of erect types can be dug from healthy plants. Seed can be cleaned and chilled, and should be labeled “seedling,” never with the cultivar name. That is the whole seed-to-seed honesty of this fruit.",
+				body: "Tip-layer in late summer: bury a cane tip a couple of inches and it roots. Cut it free the next spring and you have the same blackberry. Suckers of erect types can be dug from healthy plants. Seed can be cleaned and chilled, and should be labeled “seedling,” never with the cultivar name. That is the honest way to keep this fruit.",
 				action: "Bury a tip to copy the plant. Keep seed only if you want a new bramble."
 			}
 		},
@@ -468,13 +480,13 @@ var heathBushes = [
 		group: "Heath",
 		fruit: "blueberry",
 		habit: "Upright deciduous shrub, multi-stemmed",
-		zones: [4, 7],
+		zones: [4, 9],
 		ph: [4.5, 5.5],
 		sun: "Full sun, six hours or more",
 		water: "Even moisture. Never soggy, never baked dry.",
 		height: "4–6 ft, some cultivars taller",
 		thorns: "None",
-		pollination: "Often self-fruitful, but two cultivars crop better and berry larger.",
+		pollination: "Plant at least two different varieties that bloom at the same time. Some blueberries set a little fruit alone, but two or more varieties give much bigger crops and bigger berries. Rabbiteye blueberries need a partner.",
 		yearsPlant: "3–4 years",
 		yearsSeed: "4–6 years, and not the parent variety",
 		nurseryYears: 3,
@@ -773,7 +785,7 @@ var heathBushes = [
 				action: "Pick when fully dark and soft enough to taste sweet-tart, not merely colored."
 			},
 			save: {
-				body: "A cutting is the seed-to-seed stand-in that keeps the plant you have. Ripe fruit can be rinsed for actual seed, dried, labeled, and given a long chill, with low expectations. Do not dig wild mountain huckleberries and expect them to adopt your garden. Most of them die of the move.",
+				body: "A cutting is the stand-in that keeps the plant you have. Ripe fruit can be rinsed for actual seed, dried, labeled, and given a long chill, with low expectations. Do not dig wild mountain huckleberries and expect them to adopt your garden. Most of them die of the move.",
 				action: "Take cuttings from your own shrub. Leave the mountain stands in the mountains."
 			}
 		},
@@ -1074,8 +1086,8 @@ var otherBushes = [
 		partShade: false,
 		shade: false,
 		alkalineOk: true,
-		lead: "Goji is the berry in this book that wants the soil blueberries hate. Neutral to alkaline, full sun, and a willingness to sprawl. It flowers on new growth, so a spring prune does not cancel the crop. The fruit is red, oblong, and famous dried. The leaves are edible cooked. It is a nightshade, not a blueberry, and it should not be slipped into an acid bed.",
-		kitchen: "Dry the ripe red berries, or eat them fresh when fully ripe and sweet. They are milder fresh than the chewy dried ones suggest. Young leaves can be cooked like a green. Unripe fruit is not the crop.",
+		lead: "Goji is the berry in this book that wants the soil blueberries hate. Neutral to alkaline, full sun, and a willingness to sprawl. It flowers on new growth, so a spring prune does not cancel the crop. The fruit is red, oblong, and famous dried. It is a nightshade, not a blueberry, and it should not be slipped into an acid bed.",
+		kitchen: "Dry the ripe red berries, or eat them fresh when fully ripe and sweet. They are milder fresh than the chewy dried ones suggest. Unripe fruit is not the crop.",
 		caution: "It suckers and it self-seeds, and in some regions it is a weed. Do not plant it where a thicket would be a problem. Do not confuse the plant with bittersweet nightshade. If you are on a nightshade-sensitive diet, this is still a nightshade.",
 		stages: {
 			gather: {
@@ -1593,6 +1605,14 @@ function savePatch(entries) {
 }
 var FRONT = [
 	{
+		id: "safe",
+		label: "Stay safe: wild berries"
+	},
+	{
+		id: "start",
+		label: "Start here"
+	},
+	{
 		id: "howto",
 		label: "How to use this book"
 	},
@@ -1617,6 +1637,14 @@ var BACK = [
 	{
 		id: "others",
 		label: "Beyond this book"
+	},
+	{
+		id: "glossary",
+		label: "Glossary"
+	},
+	{
+		id: "about",
+		label: "About and disclaimer"
 	},
 	{
 		id: "project",
@@ -1667,7 +1695,7 @@ function AlmanacApp() {
 		setPage(next);
 		setMenu(false);
 	}
-	if (page === "cover") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Cover, { onOpen: () => open("howto") });
+	if (page === "cover") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Cover, { onOpen: () => open("safe") });
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 		className: "min-h-screen bg-paper text-ink lg:grid lg:grid-cols-[17rem_minmax(0,1fr)]",
 		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("aside", {
@@ -1697,11 +1725,11 @@ function AlmanacApp() {
 						className: "min-h-11 text-left",
 						onClick: () => open("cover"),
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-							className: "block font-display text-lg leading-none",
-							children: "Seed to Seed"
+							className: "block font-display text-base leading-tight",
+							children: "The Education Revolution"
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 							className: "text-xs tracking-wide text-muted",
-							children: "Jessica McIntosh"
+							children: "Vol. 10 · Berry Bushes: Cutting to Harvest"
 						})]
 					})]
 				}),
@@ -1748,6 +1776,10 @@ function AlmanacApp() {
 						setPatch,
 						open
 					})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("footer", {
+					className: "mx-auto w-full max-w-3xl px-5 pb-8 sm:px-8",
+					children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PrivacyLine, {})
 				})
 			]
 		})]
@@ -1771,18 +1803,26 @@ function Cover({ onOpen }) {
 							"aria-hidden": "true"
 						}), "Sixteen bushes"]
 					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mb-3 text-sm text-mist",
+						children: "Pocket Guide, Volume 10"
+					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", {
-						className: "font-display text-6xl leading-[0.92] font-medium sm:text-7xl",
-						children: "Seed to Seed"
+						className: "font-display text-5xl leading-[0.95] font-medium sm:text-6xl",
+						children: "The Education Revolution"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+						className: "mt-4 font-display text-3xl leading-tight font-medium text-paper",
+						children: "Berry Bushes: Cutting to Harvest"
 					}),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 						className: "mt-5 max-w-sm text-lg text-mist",
-						children: "Berry bushes, from the seed you hold to the seed you save."
+						children: "From the cutting you take to the harvest you pick."
 					})
 				] }),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 					className: "font-display text-2xl font-medium",
-					children: "Jessica McIntosh"
+					children: "Blue and the Awesome Dudes"
 				})
 			]
 		}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", {
@@ -1790,7 +1830,7 @@ function Cover({ onOpen }) {
 			children: [
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 					className: "max-w-md text-lg leading-relaxed",
-					children: "A field book for growing your own fruit. Sixteen bushes, from the seed you hold to the seed you save."
+					children: "A field book for growing your own fruit. Sixteen bushes, from the cutting you take to the harvest you pick."
 				}),
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 					className: "flex flex-wrap items-center gap-3",
@@ -1809,15 +1849,15 @@ function Cover({ onOpen }) {
 					children: [
 						["Bushes", "16"],
 						["Stages", "9"],
-						["Edition", "Open"],
-						["Author", "McIntosh"]
+						["Volume", "10"],
+						["Author", "Blue and the Awesome Dudes"]
 					].map(([label, value]) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 						className: "bg-paper px-3 py-3",
 						children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("dt", {
 							className: "text-xs tracking-widest text-muted uppercase",
 							children: label
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("dd", {
-							className: "mt-1 font-display text-2xl",
+							className: "mt-1 font-display text-2xl leading-tight",
 							children: value
 						})]
 					}, label))
@@ -1825,7 +1865,8 @@ function Cover({ onOpen }) {
 				/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 					className: "max-w-md text-sm text-muted",
 					children: "Land, photos, hands-on days, storage, and recipes come later."
-				})
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime.jsx)(PrivacyLine, {})
 			]
 		})]
 	});
@@ -1845,11 +1886,11 @@ function Contents({ page, query, setQuery, open }) {
 				className: "mb-3 min-h-11 px-2 text-left",
 				onClick: () => open("cover"),
 				children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
-					className: "block font-display text-xl leading-none",
-					children: "Seed to Seed"
+					className: "block font-display text-xl leading-tight",
+					children: "The Education Revolution"
 				}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 					className: "text-xs text-muted",
-					children: "Jessica McIntosh"
+					children: "Vol. 10 · Blue and the Awesome Dudes"
 				})]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", {
@@ -1948,6 +1989,8 @@ function PageBody(props) {
 		setStage: props.setStage,
 		open: props.open
 	});
+	if (props.page === "safe") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StaySafe, { open: props.open });
+	if (props.page === "start") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StartHere, { open: props.open });
 	if (props.page === "howto") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HowTo, { open: props.open });
 	if (props.page === "cycle") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Cycle, {
 		stage: props.stage,
@@ -1972,6 +2015,8 @@ function PageBody(props) {
 		open: props.open
 	});
 	if (props.page === "others") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Others, {});
+	if (props.page === "glossary") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Glossary, { open: props.open });
+	if (props.page === "about") return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(About, { open: props.open });
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Project, {});
 }
 function ChapterHead({ kicker, title, dek }) {
@@ -1998,14 +2043,14 @@ function HowTo({ open }) {
 		className: "rise",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChapterHead, {
-				kicker: "Chapter 1",
+				kicker: `Chapter ${readingOrder().indexOf("howto") + 1}`,
 				title: "How to use this book",
 				dek: "Same nine beats for every bush, so a blueberry and a goji can be compared without learning a new outline."
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 				className: "space-y-4 text-base",
 				children: [
-					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Seed to seed is the biological circle: gather the seed, carry it through dormancy, sow it, raise the seedling, put it in the right ground, keep it alive, prune the wood that fruits, pick the fruit, and save the next seed. For most named berries the faithful copy is not a seed at all. It is a cutting, a sucker, or a cane tip that rooted. This book tells both truths." }),
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "The cycle is a circle: gather the seed, carry it through dormancy, sow it, raise the seedling, put it in the right ground, keep it alive, prune the wood that fruits, pick the fruit, and save the next seed. For most named berries the faithful copy is not a seed at all. It is a cutting, a sucker, or a cane tip that rooted. This book tells both truths." }),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Each bush chapter opens with a field card — zones, pH, years — then the nine stages. The line under each stage is the thing to do, not a slogan. The year at the end is a calendar, not a promise about your weather. USDA zones say how cold a plant can take. They do not say whether your July will cook it." }),
 					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Match your ground if you have not chosen a bush. Side by side if you are deciding between two. Your patch is a private notebook kept on this device: what you planted, and which stage it is actually in." })
 				]
@@ -2072,7 +2117,7 @@ function Cycle({ stage, setStage, cycleBush, setCycleBush, open }) {
 		className: "rise",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChapterHead, {
-				kicker: "Chapter 2",
+				kicker: `Chapter ${readingOrder().indexOf("cycle") + 1}`,
 				title: "The cycle",
 				dek: "Nine stages that belong to every bush in the book. The details change. The order does not."
 			}),
@@ -2098,7 +2143,8 @@ function Cycle({ stage, setStage, cycleBush, setCycleBush, open }) {
 							className: "font-medium",
 							children: "Do this. "
 						}), lesson.lessonAction]
-					})
+					}),
+					stage === "gather" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PatentBox, {}) : null
 				]
 			}),
 			bush && copy ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
@@ -2159,7 +2205,7 @@ function Match({ ground, setGround, open }) {
 		className: "rise",
 		children: [
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChapterHead, {
-				kicker: "Chapter 3",
+				kicker: `Chapter ${readingOrder().indexOf("match") + 1}`,
 				title: "Match your ground",
 				dek: "Zones are a cold-hardiness sketch. pH is not optional. Answer for the bed you will actually plant, not the bed you wish you had."
 			}),
@@ -2384,7 +2430,7 @@ function BushChapter({ bush, stage, setStage, open }) {
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
 				className: "mt-10 font-display text-2xl font-medium",
-				children: "Seed to seed"
+				children: "Cutting to harvest"
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
 				className: "mt-4",
@@ -2411,7 +2457,11 @@ function BushChapter({ bush, stage, setStage, open }) {
 							className: "font-medium",
 							children: "Do this. "
 						}), copy.action]
-					})
+					}),
+					stage === "gather" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
+						className: "mt-4",
+						children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PatentBox, {})
+					}) : null
 				]
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", {
@@ -2758,11 +2808,168 @@ function Others() {
 		})]
 	});
 }
+var POISONOUS = [
+	["Pokeweed", "Dark purple berries hanging in long clusters on pink-red stems. Poisonous."],
+	["Nightshades, like bittersweet nightshade", "Small red or black berries with star-shaped flowers. Poisonous."],
+	["Yew", "Bright red cup-shaped berries on an evergreen shrub. The seed and leaves are deadly."],
+	["Virginia creeper", "Blue-black berries on a vine with 5 leaflets. Poisonous."],
+	["Moonseed", "Looks like wild grape, but it has ONE flat, crescent-moon seed. Grapes have several round seeds. Can kill."],
+	["Buckthorn, holly, and baneberry berries are also poisonous.", ""]
+];
+function StaySafe({ open }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+		className: "rise",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChapterHead, {
+				kicker: `Chapter ${readingOrder().indexOf("safe") + 1}`,
+				title: "Stay safe: wild berries"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "Never eat a wild berry unless you are 100% sure what it is. Many poisonous berries look tasty. Keep kids away from these:" }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", {
+				className: "mt-4 list-disc space-y-3 pl-5",
+				children: POISONOUS.map(([name, note]) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: note ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+					/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", {
+						className: "font-medium",
+						children: [name, "."]
+					}),
+					" ",
+					note
+				] }) : name }, name))
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+				className: "mt-6",
+				children: "Elderberry: Only eat ripe dark berries, and always cook them. Never eat the stems, leaves, or unripe berries, or any red elderberry."
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", {
+				className: "mt-4 border-l-4 border-wine bg-wine-soft px-4 py-3 text-sm",
+				children: [
+					"If someone eats an unknown berry, call Poison Control at",
+					" ",
+					/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
+						className: "font-medium underline",
+						href: "tel:18002221222",
+						children: "1-800-222-1222"
+					}),
+					"."
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pager, {
+				page: "safe",
+				open
+			})
+		]
+	});
+}
+var START_STEPS = [
+	"Find your USDA zone. Search 'USDA zone' plus your zip code.",
+	"Test your soil pH. Blueberries need very acid soil (4.5 to 5.5). Most others like 5.5 to 6.8.",
+	"Buy healthy named plants from a nursery. Seeds from a berry will NOT grow the same berry.",
+	"Plant in full sun, in soil that drains well. Mulch around the plant.",
+	"Water every week the first two summers.",
+	"Learn whether your canes fruit on new or old wood before you prune.",
+	"Want more plants? Make copies with cuttings, layering, or suckers. That is how berry growers 'save seed.'"
+];
+function StartHere({ open }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+		className: "rise",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChapterHead, {
+				kicker: `Chapter ${readingOrder().indexOf("start") + 1}`,
+				title: "Start here",
+				dek: "New to berry bushes? Do these in order:"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("ol", {
+				className: "list-decimal space-y-3 pl-5",
+				children: START_STEPS.map((step) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("li", { children: step }, step))
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pager, {
+				page: "start",
+				open
+			})
+		]
+	});
+}
+var GLOSSARY = [
+	["Cultivar", "A named variety, like 'Bluecrop'."],
+	["Clone", "A plant grown from a cutting, sucker, or layer. It is an exact copy of the parent."],
+	["Cutting", "A piece of stem rooted to make a new plant."],
+	["Layering", "Bending a branch into the soil so it roots while still attached."],
+	["Sucker", "A new shoot that comes up from the roots."],
+	["Primocane", "A first-year cane."],
+	["Floricane", "A second-year cane that fruits, then dies."],
+	["Chill hours", "Hours of winter cold a bush needs before it will fruit."],
+	["Stratification", "Giving seeds a cold, damp period so they will sprout."],
+	["Self-fruitful", "A plant that can make fruit with its own pollen."],
+	["pH", "How acid or sweet your soil is."]
+];
+function Glossary({ open }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+		className: "rise",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChapterHead, {
+				kicker: `Chapter ${readingOrder().indexOf("glossary") + 1}`,
+				title: "Glossary",
+				dek: "Short names for the words this book uses."
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("dl", {
+				className: "space-y-4",
+				children: GLOSSARY.map(([term, meaning]) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
+					className: "border-b border-line pb-4",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("dt", {
+						className: "font-display text-2xl font-medium",
+						children: term
+					}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("dd", {
+						className: "mt-1",
+						children: meaning
+					})]
+				}, term))
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pager, {
+				page: "glossary",
+				open
+			})
+		]
+	});
+}
+function About({ open }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("article", {
+		className: "rise",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(ChapterHead, {
+				kicker: `Chapter ${readingOrder().indexOf("about") + 1}`,
+				title: "About and disclaimer"
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "This pocket guide is for learning. Gardens, weather, and people differ. Check with your local county extension office and your state's plant rules. Never eat a wild plant you cannot identify for certain. Blue and the Awesome Dudes are not responsible for injury, illness, or crop loss. Part of The Education Revolution pocket guide series." }),
+			/* @__PURE__ */ (0, import_jsx_runtime.jsx)(Pager, {
+				page: "about",
+				open
+			})
+		]
+	});
+}
+function PatentBox() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("aside", {
+		className: "border-l-4 border-wine bg-wine-soft px-4 py-3 text-sm",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "font-medium",
+			children: "Plant patents"
+		}), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+			className: "mt-2",
+			children: "Many newer berry varieties are patented. The tag will say 'PP' with a number, or 'Propagation prohibited.' It is against the law to root cuttings or dig suckers from those plants to give away or sell while the patent lasts, usually 20 years. Older varieties and plants with no patent are fine to share. Read the tag."
+		})]
+	});
+}
+function PrivacyLine() {
+	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
+		className: "mt-6 text-sm text-muted",
+		children: "Privacy: This guide does not collect your name, email, or any personal information. Your choices are saved only on your own device."
+	});
+}
 var LATER = [
 	{
 		when: "Now",
 		title: "This book, free",
-		body: "Sixteen berry bushes, seed to seed. Read them, match them to your ground, and keep a patch notebook on this device. The reading stays open."
+		body: "Sixteen berry bushes, from cutting to harvest. Read them, match them to your ground, and keep a patch notebook on this device. The reading stays open."
 	},
 	{
 		when: "When there is land",
@@ -2810,7 +3017,7 @@ function Project() {
 			}),
 			/* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", {
 				className: "mt-8 text-sm text-muted",
-				children: "© 2026 Jessica McIntosh."
+				children: "© 2026 Blue and the Awesome Dudes."
 			})
 		]
 	});

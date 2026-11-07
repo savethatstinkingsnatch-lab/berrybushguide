@@ -184,6 +184,17 @@ export type Ground = {
 export type Verdict = { bush: Bush; fit: "yes" | "if" | "no"; reason: string };
 
 export function judge(bush: Bush, ground: Ground): Verdict {
+  return noteWarmBlueberry(judgeFit(bush, ground), ground);
+}
+
+function noteWarmBlueberry(verdict: Verdict, ground: Ground): Verdict {
+  if (verdict.bush.id !== "blueberry" || verdict.fit === "no") return verdict;
+  if (ground.zone < 7 || ground.zone > 9) return verdict;
+  const note = "In zones 7–9, choose rabbiteye or southern highbush types.";
+  return { ...verdict, reason: `${verdict.reason} ${note}` };
+}
+
+function judgeFit(bush: Bush, ground: Ground): Verdict {
   const [lo, hi] = bush.zones;
   if (ground.zone < lo || ground.zone > hi) {
     return {
